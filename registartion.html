@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Registration page</title>
+    <script type="text/javascript">
+    function myfunction(){
+      alert("Data submitted!!");
+    }
+    </script>
+</head>
+<style>
+body{
+    background: url('./img/vzerFy.jpg');
+}
+.container {  
+    padding: 50px;  
+    background-color:darkorange;  
+}
+input[type=text], input[type=password], textarea {  
+  width: 100%;  
+  padding: 15px;  
+  margin: 5px 0 22px 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;  
+}
+.registerbtn {  
+  background-color: green;  
+  color: white;  
+  padding: 16px 20px;  
+  margin: 8px 0;  
+  border: none;  
+  cursor: pointer;  
+  width: 100%;  
+  opacity: 0.9;  
+}
+.registerbtn1 {  
+  background-color:blue;  
+  color: white;  
+  padding: 16px 20px;  
+  margin: 8px 0;  
+  border: none;  
+  cursor: pointer;  
+  width: 100%;  
+  opacity: 0.9;  
+}  
+.registerbtn:hover {  
+  opacity: 1;  
+}  
+</style>
+<body>
+    <form th:action="@{/do_register}"  method="POST" th:object="${user}">
+        <div class="container">  
+            <h1 class="text-centre">Register Here!!</h1>
+            <hr>  
+            <label> <b>Name</b> </label>   
+<input type="text" name="name" placeholder="name" size="15" required th:case="${user.name}" />
+<div>  
+    <label>   
+    <b>Gender</b>  
+    </label><br>  
+    <input type="radio" value="Male" name="gender"> <b>Male</b>  
+    <input type="radio" value="Female" name="gender"> <b>Female</b>   
+    <input type="radio" value="Other" name="gender"> <b>Other</b>
+    </div>  
+<label>
+<b>Mobile</b>
+</label>   
+<input type="text" name="phone" placeholder="phone no." size="10" required>
+<label>
+   <b> Aadhar Number (Note:You have to bring Aadhar card in gym for verification.)</b>
+</label>
+<input type="text" name="aadhar number" placeholder="aadhar no" size="12" required>
+<b>Current Address</b>  
+<textarea cols="80" rows="5" placeholder="Current Address" value="address" required>  
+</textarea>
+<label for="email"><b>Email</b></label>  
+<input type="text" placeholder="Enter Email" name="email" required>  
+ 
+   <label for="psw"><b>Password</b></label>  
+   <input type="password" placeholder="Enter Password" name="psw" required>  
+ 
+   <label for="psw-repeat"><b>Re-type Password</b></label>  
+   <input type="password" placeholder="Retype Password" name="psw-repeat" required>  
+   <button type="submit" class="registerbtn" onclick="mycall()">Register</button>
+   <button type="reset" class="registerbtn1" onclick="mycall()">Reset</button>     
+    </form>
+</body>
+</html>
